@@ -145,8 +145,8 @@ namespace DSA
             pos = pos % Count;
             for (int i = 0; i < pos; ++i)
             {
-                // move last element to head
-                Head = Head.Prev; // in circular list tail is Head.Prev
+                // move head forward by one node
+                Head = Head.Next; // in circular list tail is Head.Prev
             }
             Temp = Head.Prev;
         }

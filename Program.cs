@@ -224,6 +224,6 @@ internal class Program
                     Console.Clear();
                     break;
             }
-        } while (choice != 9);
+        } while (choice != 11);
     }
 }
