@@ -1,0 +1,34 @@
+name: DCLL CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+          cache: true
+
+      - name: Restore dependencies
+        run: dotnet restore DCLLImplementation.slnx
+
+      - name: Build
+        run: dotnet build DCLLImplementation.slnx --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test DCLLImplementation.slnx --configuration Release --no-build
