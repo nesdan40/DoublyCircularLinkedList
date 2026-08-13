@@ -157,11 +157,11 @@ namespace DSA
                 return;
             }
 
-            pos = pos % Count;
+            pos = (pos % Count + Count) % Count;
             for (int i = 0; i < pos; ++i)
             {
                 // move first element to tail
-                Head = Head.Next;
+                Head = Head.Prev;
             }
             Temp = Head.Prev;
         }
