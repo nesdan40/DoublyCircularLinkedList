@@ -161,7 +161,7 @@ namespace DSA
             for (int i = 0; i < pos; ++i)
             {
                 // move first element to tail
-                Head = Head.Next;
+                Head = Head.Prev;
             }
             Temp = Head.Prev;
         }
