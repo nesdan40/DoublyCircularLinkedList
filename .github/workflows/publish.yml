@@ -1,0 +1,48 @@
+name: Publish NuGet Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-publish:
+    name: Build, Test and Publish
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore DCLLImplementation.slnx
+
+      - name: Build
+        run: dotnet build DCLLImplementation.slnx --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test DCLLImplementation.slnx --configuration Release --no-build
+
+      - name: Pack NuGet package
+        run: dotnet pack DoublyLinkedList.csproj --configuration Release --no-build --no-restore --output ./artifacts
+
+      - name: NuGet login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: nesdan23
+
+      - name: Publish to NuGet.org
+        run: dotnet nuget push "./artifacts/*.nupkg" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source "https://api.nuget.org/v3/index.json"
