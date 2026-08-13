@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DCLLImplementation.Tests/DCLLImplementation.Tests.csproj" />
+  <Project Path="DoublyLinkedList.csproj" />
+</Solution>

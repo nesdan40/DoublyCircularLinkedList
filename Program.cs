@@ -2,7 +2,7 @@
 
 internal class Program
 {
-    public static DoublyCircularLinkedList list = new DoublyCircularLinkedList();
+    public static DoublyCircularLinkedList<int> list = new DoublyCircularLinkedList<int>();
 
     private static void ContinueTest()
     {
@@ -76,7 +76,14 @@ internal class Program
                     Console.Clear();
                     Console.WriteLine($"---[{MenuItems[3]}]---");
 
-                    list.DisplayList();
+                    // display forward
+                    foreach (var item in list)
+                        Console.Write($"{item}-");
+                    Console.WriteLine();
+                    // display backward
+                    foreach (var item in list.EnumerateBackward())
+                        Console.Write($"{item}-");
+                    Console.WriteLine();
 
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
@@ -178,36 +185,55 @@ internal class Program
                         list.AppendList(45);
                         list.AppendList(46);
                         list.AppendList(47);
-                        list.DisplayList();
+                        // display forward
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
 
                         list.RotateBackward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
 
                         list.RotateBackward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
 
                         list.RotateBackward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
 
                         list.RotateBackward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
 
                         list.RotateForward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
                         list.RotateForward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
                         list.RotateForward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
                         list.RotateForward(1);
-                        list.DisplayList();
+                        foreach (var item in list)
+                            Console.Write($"{item}-");
+                        Console.WriteLine();
                         ContinueTest();
 
                         test = 0;

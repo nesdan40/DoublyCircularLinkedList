@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>Doubly_Linked_List</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<PackageId>DCLLImplementation</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>nesdan40</Authors>
+		<Company>nesdan40</Company>
+		<Description>Generic circular doubly linked list implementation (Doubly Circular Linked List).</Description>
+		<PackageTags>data-structures;linked-list;doubly-linked-list;doubly-circular-linked-list</PackageTags>
+		<RepositoryUrl>https://github.com/nesdan40/DoublyCircularLinkedList</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="DCLLImplementation.Tests\**" />
+		<None Remove="DCLLImplementation.Tests\**" />
+	</ItemGroup>
+
+</Project>
